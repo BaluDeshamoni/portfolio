@@ -2,11 +2,11 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: ' Harshitha Sivalingala',
+    title: ' Harshitha Sivalingalas',
     description:
       'Harshitha Sivalingala is a software engineer who specializes in building exceptional digital experiences.',
     siteUrl: 'https://github.com/HarshithaSivalingala/Portfolio', // No trailing slash allowed!
-    image: '/og.png', // Path to your image you placed in the 'static' folder
+    image: '/logo.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
   },
   plugins: [
@@ -26,7 +26,7 @@ module.exports = {
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
         display: 'minimal-ui',
-        icon: 'static/og.png',
+        icon: 'static/logo.png',
       },
     },
     `gatsby-plugin-offline`,

@@ -7,7 +7,7 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo, IconHex } from '@components/icons';
+import { IconLogo } from '@components/icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -17,7 +17,7 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(6, 13, 26,0.7);
+  background-color: rgba(6, 13, 26, 0.7);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -33,17 +33,17 @@ const StyledHeader = styled.header`
 
   @media (prefers-reduced-motion: no-preference) {
     ${props =>
-      props.scrollDirection === 'up' &&
+    props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(6, 13, 26,0.7);
+        background-color: rgba(6, 13, 26, 0.7);
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
     ${props =>
-      props.scrollDirection === 'down' &&
+    props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
         height: var(--nav-scroll-height);
@@ -207,9 +207,9 @@ const Nav = ({ isHome }) => {
         </a>
       ) : (
         <Link to="/" aria-label="home">
-          <div className="hex-container">
+          {/* <div className="hex-container">
             <IconHex />
-          </div>
+          </div> */}
           <div className="logo-container">
             <IconLogo />
           </div>
@@ -226,7 +226,12 @@ const Nav = ({ isHome }) => {
             {Logo}
 
             <StyledLinks>
-              {navLinks && navLinks.map(({ url, name }, i) => <Link to={url}>{name}</Link>)}
+              {navLinks &&
+                navLinks.map(({ url, name }, i) => (
+                  <Link key={i} to={url}>
+                    {name}
+                  </Link>
+                ))}
 
               <div>{ResumeLink}</div>
             </StyledLinks>
