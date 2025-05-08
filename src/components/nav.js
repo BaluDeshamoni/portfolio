@@ -225,7 +225,7 @@ const Nav = ({ isHome }) => {
           <>
             {Logo}
 
-            <StyledLinks>
+            {/* <StyledLinks>
               {navLinks &&
                 navLinks.map(({ url, name }, i) => (
                   <Link key={i} to={url}>
@@ -234,7 +234,7 @@ const Nav = ({ isHome }) => {
                 ))}
 
               <div>{ResumeLink}</div>
-            </StyledLinks>
+            </StyledLinks> */}
 
             <Menu />
           </>
