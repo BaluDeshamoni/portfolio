@@ -2,7 +2,7 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: ' Harshitha Sivalingalas',
+    title: ' Harshitha Sivalingala',
     description:
       'Harshitha Sivalingala is a software engineer who specializes in building exceptional digital experiences.',
     siteUrl: 'https://github.com/HarshithaSivalingala/Portfolio', // No trailing slash allowed!

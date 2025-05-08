@@ -143,19 +143,19 @@ const StyledTestimonialsSection = styled.section`
 const testimonialsData = [
   {
     quote:
-      'Working with this team was a delight. Their professionalism and technical expertise were exceptional.',
-    author: 'Jane Doe',
-    position: 'CTO, TechCorp',
-  },
-  {
-    quote:
       'I had the pleasure of working with Harshitha during our undergraduation in 2023, on a full-stack project involving React and NodeJS, and I was thoroughly impressed by her technical skills and dedication.From designing clean and responsive front-end components in React to integrating back-end logic, she consistently delivered high-quality work with precision and care.Beyond her technical strengths, what truly stands out is her collaborative spirit.\n\n She’s an exceptional team player who brings a positive attitude to every discussion, is always open to feedback, and never hesitates to lend a hand when someone needs support. \n\nHer commitment to deadlines, problem-solving ability, and attention to detail made a significant impact on the success of our project.I highly recommend Harshitha to any team looking for a skilled, motivated, and reliable developer. She’s a valuable asset wherever she goes.',
     author: 'Pratyusha Paluchani',
     position: 'Engineering Analyst at Goldman Sachs',
   },
   {
     quote:
-      "I had the opportunity to collaborate with Harshitha on various technical projects, coding trainings, WISE(Women in Software Engineering) powered by talent sprint during years 2021-2023. I've consistently been impressed by her leadership skills, dedication, and problem-solving mindset.\n\nShe's a talented full-stack developer, with strong experience in the MERN stack, and brings a great balance of frontend creativity and backend logic to her work.\n\nHarshitha also has a solid grasp of data structures and algorithms, UI designing, web development, and Python, making her a truly versatile developer. Her ability to build scalable applications while ensuring a smooth and intuitive user experience is one of her strongest traits.",
+      'I have had the privilege of collaborating with Harshitha on open source contributions and our hobby project, ChargeShare — a platform designed to make EV charger sharing seamless and scalable.\n\n What truly sets her apart is an exceptional commitment to quality and a relentless drive for improvement. Every feature, UI detail, or code refactor isn’t just completed it’s refined. She dives deep into research, never settling for a surface level solution. Even when something “works,” it’s not enough unless it meets and often exceeds the standard we have set.\n\n In addition to technical brilliance, she is an amazing collaborator thoughtful, supportive, and always open to feedback.',
+    author: 'BaluChander Deshamoni',
+    position: 'Software Developer at JP Morgan Chase & Co',
+  },
+  {
+    quote:
+      'I had the opportunity to collaborate with Harshitha on various technical projects, coding trainings, WISE(Women in Software Engineering) powered by talent sprint during years 2021-2023. I\'ve consistently been impressed by her leadership skills, dedication, and problem-solving mindset.\n\nShe\'s a talented full-stack developer, with strong experience in the MERN stack, and brings a great balance of frontend creativity and backend logic to her work.\n\nHarshitha also has a solid grasp of data structures and algorithms, UI designing, web development, and Python, making her a truly versatile developer. Her ability to build scalable applications while ensuring a smooth and intuitive user experience is one of her strongest traits.',
     author: 'Spandana Gujjarlapudi',
     position: 'Software Developer at Deloitte',
   },
@@ -198,10 +198,23 @@ const Testimonials = () => {
 
       <div className="carousel-dots">
         {testimonialsData.map((_, index) => (
+          // <div
+          //   key={index}
+          //   className={`dot ${index === currentIndex ? 'active' : ''}`}
+          //   onClick={() => goToSlide(index)}
+          // />
           <div
             key={index}
+            role="button"
+            tabIndex={0}
             className={`dot ${index === currentIndex ? 'active' : ''}`}
             onClick={() => goToSlide(index)}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                goToSlide(index);
+              }
+            }}
+            aria-label={`Go to testimonial ${index + 1}`}
           />
         ))}
       </div>
